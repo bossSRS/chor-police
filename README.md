@@ -42,4 +42,74 @@ Each round:
   - `ScoreConfig`: Easily adjust scores without touching code
 
 ### 📁 Folder Structure
+Scripts/
+├── Core/
+├── Player/
+├── Systems/
+│ └── Scoring/
+├── Utilities/
+└── Testing/
+
+
+---
+
+## 🛠️ Development Plan
+
+### ✅ Phase 1: Core Logic + AI Prototype (In Progress)
+- [x] Player & Role system
+- [x] Round simulation
+- [x] Scoring via ScriptableObject
+- [ ] Simple AI system (target selection logic)
+- [ ] UI for player roles, round status, and scores
+
+### 🔄 Phase 2: Online Multiplayer (Photon Fusion 2)
+- Sync player roles & scores
+- Room creation & matchmaking
+- Sync game state across clients
+
+### 🔄 Phase 3: Local Multiplayer (WiFi/Bluetooth)
+- Local peer-to-peer discovery
+- Sync actions over LAN/Bluetooth
+
+---
+
+## 🧰 Tech Stack
+
+- **Engine:** Unity (2022.3 LTS or newer)
+- **Language:** C#
+- **Networking:** Photon Fusion 2 (Planned)
+- **Version Control:** Git + GitHub
+
+---
+
+## 📸 Screenshots / Demos
+
+*To be added as development progresses.*
+
+---
+
+## 🤝 Contributions & Feedback
+
+This is a solo educational project but feedback is always welcome.  
+If you're a Bangladeshi dev or board game fan — feel free to star or fork!
+
+---
+
+## 📅 Timeline
+
+🧪 Week 1–2: Core logic + AI  
+🕹️ Week 3–4: Multiplayer mode with Photon Fusion  
+📡 Week 5–6: Bluetooth/WiFi Local Multiplayer
+
+---
+
+## 👤 Author
+
+**Sadikur Rahman** – [LinkedIn](https://www.linkedin.com/in/sadikur-rahman-385232159)  
+Game Developer | CTO | OOP Practitioner | Unity Enthusiast
+
+---
+
+> Built with ❤️ to revive our childhood games using modern multiplayer tech.
+
 
