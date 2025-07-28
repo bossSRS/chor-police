@@ -1,16 +1,11 @@
+// RoleManager.cs
+// Author: Sadikur Rahman
+// Description: Assigns roles randomly to players and tracks role distribution.
+
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RoleManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // TODO: Implement assigns roles randomly to players and tracks role distribution.
 }

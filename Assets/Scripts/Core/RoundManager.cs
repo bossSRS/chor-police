@@ -1,16 +1,22 @@
+// RoundManager.cs
+// Author: Sadikur Rahman
+// Description: Handles round-specific logic such as target type (CHOR or DAKAT) and timers.
+
 using UnityEngine;
 
-public class RoundManager : MonoBehaviour
+public class RoundManager : BaseManager
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public RoleType currentTarget = RoleType.CHOR;
+    public float roundTimer = 60f;
+
+    public void StartRound()
     {
-        
+        Debug.Log("Round Started: Target = " + currentTarget);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndRound()
     {
-        
+        Debug.Log("Round Ended");
+        currentTarget = (currentTarget == RoleType.CHOR) ? RoleType.DAKAT : RoleType.CHOR;
     }
 }

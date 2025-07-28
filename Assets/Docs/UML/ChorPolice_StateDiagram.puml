@@ -1,0 +1,11 @@
+@startuml
+[*] --> Idle
+
+Idle --> RoleAssignment : StartGame()
+RoleAssignment --> RoundStart : All roles assigned
+RoundStart --> PlayerHunt : Timer started
+PlayerHunt --> ResultEvaluation : Police hunts
+ResultEvaluation --> NextRound : Score calculated
+NextRound --> RoleAssignment : Next round begins
+
+@enduml
