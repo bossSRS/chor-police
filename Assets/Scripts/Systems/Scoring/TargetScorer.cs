@@ -1,6 +1,6 @@
 // TargetScorer.cs
 // Author: Sadikur Rahman
-// Description: Score logic for CHOR or DAKAT role using ScoreConfig.
+// Description: Handles scoring for CHOR and DAKAT roles with updated survival logic.
 
 public class TargetScorer : IScorable
 {
@@ -13,13 +13,25 @@ public class TargetScorer : IScorable
 
     public void CalculateScore(PlayerData player, bool didPoliceWin, RoleType target)
     {
-        if (!didPoliceWin)
-        {
-            if (player.Role == RoleType.CHOR && target == RoleType.CHOR)
-                player.Score += config.chorSurviveScore;
+        bool isChor = player.Role == RoleType.CHOR;
+        bool isDakat = player.Role == RoleType.DAKAT;
 
-            if (player.Role == RoleType.DAKAT && target == RoleType.DAKAT)
-                player.Score += config.dakatSurviveScore;
+        if (!isChor && !isDakat) return; // Not a target role
+
+        if (didPoliceWin)
+        {
+            // Police caught the target
+            if (player.Role != target)
+            {
+                // Other suspect survived
+                player.Score += (isChor ? config.chorSurviveScore : config.dakatSurviveScore);
+            }
+            // else target caught => 0
+        }
+        else
+        {
+            // Police failed, both suspects get survival score
+            player.Score += (isChor ? config.chorSurviveScore : config.dakatSurviveScore);
         }
     }
 }
