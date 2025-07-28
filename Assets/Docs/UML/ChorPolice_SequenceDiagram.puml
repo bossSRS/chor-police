@@ -1,0 +1,21 @@
+@startuml
+actor Player
+participant GameManager
+participant RoleManager
+participant RoundManager
+participant ScoringSystem
+participant UIManager
+
+GameManager -> RoleManager : AssignRoles()
+RoleManager -> Player : SetRole()
+
+GameManager -> RoundManager : StartRound(target)
+RoundManager -> UIManager : Update UI
+
+Player -> UIManager : RevealRole()
+Player -> GameManager : Hunt(targetPlayer)
+GameManager -> ScoringSystem : CalculateScore()
+ScoringSystem -> Player : UpdateScore()
+GameManager -> UIManager : ShowResult()
+
+@enduml

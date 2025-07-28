@@ -1,0 +1,54 @@
+@startuml
+class GameManager {
+  - currentRound: int
+  - players: List<Player>
+  - isRoundActive: bool
+  + StartGame()
+  + EndRound()
+  + RestartGame()
+}
+
+class RoundManager {
+  - currentTarget: RoleType
+  - timer: float
+  + StartRound()
+  + EndRound()
+  + SetTarget()
+}
+
+class RoleManager {
+  - roles: List<RoleType>
+  - assignedRoles: Dictionary<Player, RoleType>
+  + AssignRoles()
+  + GetRole(player: Player): RoleType
+}
+
+class Player {
+  - id: int
+  - name: string
+  - role: RoleType
+  - score: int
+  + RevealRole()
+  + Hunt(target: Player)
+}
+
+class ScoringSystem {
+  + CalculateScore(player: Player)
+  + UpdateLeaderboard()
+}
+
+class UIManager {
+  + ShowRole(role: RoleType)
+  + UpdateTimer(time: float)
+  + ShowResult(result: string)
+}
+
+GameManager --> RoundManager
+GameManager --> RoleManager
+GameManager --> Player
+GameManager --> ScoringSystem
+GameManager --> UIManager
+RoleManager --> Player
+Player --> UIManager
+ScoringSystem --> Player
+@enduml
