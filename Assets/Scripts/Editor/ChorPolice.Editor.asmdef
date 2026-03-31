@@ -1,0 +1,27 @@
+{
+    "name": "ChorPolice.Editor",
+    "rootNamespace": "ChorPolice.Editor",
+    "references": [
+        "Unity.TextMeshPro",
+        "TMPro.TextMeshPro",
+        "UnityEngine.SceneManagement",
+        "UnityEditor.SceneManagement",
+        "ChorPolice.Core",
+        "ChorPolice.Systems",
+        "ChorPolice.Player",
+        "ChorPolice.UI",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

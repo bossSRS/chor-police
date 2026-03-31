@@ -1,0 +1,17 @@
+{
+    "name": "ChorPolice.Utilites",
+    "rootNamespace": "ChorPolice.Utilites",
+    "references": [
+        "ChorPolice.Core",
+        "ChorPolice.Systems"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

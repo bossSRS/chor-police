@@ -6,8 +6,16 @@ using UnityEngine;
 
 public class RoundManager : BaseManager
 {
+    public static RoundManager Instance;
+
     public RoleType currentTarget = RoleType.CHOR;
     public float roundTimer = 60f;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     public void StartRound()
     {
