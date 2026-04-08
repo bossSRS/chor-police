@@ -109,8 +109,15 @@ public class GameStateManager : MonoBehaviour
 
                 // Initialize AI players with new roles using reflection
                 InitializeAIPlayersReflection();
+                
+                ChangeState(GameState.RoleReveal);
             }
-            ChangeState(GameState.RoleReveal);
+            else
+            {
+                Debug.LogError("GameStateManager: No players found in GameManager during ShuffleComplete!");
+                // Optionally return to menu or try to re-init
+                ReturnToMenu();
+            }
         }
     }
 

@@ -23,19 +23,40 @@ public class RoleManager : MonoBehaviour
             return;
         }
 
-        List<RoleType> roles = new List<RoleType> { RoleType.CHOR, RoleType.POLICE, RoleType.BABU, RoleType.DAKAT };
+        // Initialize seed to ensure different results every time
+        Random.InitState(System.DateTime.Now.Millisecond + (int)Time.realtimeSinceStartup);
 
-        // Fisher-Yates shuffle for proper randomization
+        List<RoleType> roles = new List<RoleType> { 
+            RoleType.CHOR, 
+            RoleType.POLICE, 
+            RoleType.BABU, 
+            RoleType.DAKAT 
+        };
+
+        // Shuffle the roles list
         for (int i = roles.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
-            (roles[i], roles[j]) = (roles[j], roles[i]);
+            RoleType temp = roles[i];
+            roles[i] = roles[j];
+            roles[j] = temp;
         }
 
-        for (int i = 0; i < players.Count; i++)
+        // Also shuffle a copy of the players list to ensure position-independent assignment
+        List<PlayerData> shuffledPlayers = new List<PlayerData>(players);
+        for (int i = shuffledPlayers.Count - 1; i > 0; i--)
         {
-            players[i].AssignRole(roles[i]);
-            Debug.Log($"Player {players[i].Name} assigned role: {players[i].Role}");
+            int j = Random.Range(0, i + 1);
+            PlayerData temp = shuffledPlayers[i];
+            shuffledPlayers[i] = shuffledPlayers[j];
+            shuffledPlayers[j] = temp;
+        }
+
+        // Assign roles
+        for (int i = 0; i < shuffledPlayers.Count; i++)
+        {
+            shuffledPlayers[i].AssignRole(roles[i]);
+            Debug.Log($"RoleManager: Player {shuffledPlayers[i].Name} (IsAI: {shuffledPlayers[i].IsAI}) assigned role: {shuffledPlayers[i].Role}");
         }
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement class="panel-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;">
+        <ui:Label text="GAME OVER" class="title-text" />
+        <ui:Label name="lbl-winner" text="Player 1 Wins!" class="header-text text-highlight" />
+        <ui:VisualElement class="scoreboard-table" style="margin-bottom: 32px;">
+            <ui:VisualElement class="scoreboard-row scoreboard-header">
+                <ui:Label text="Rank" class="scoreboard-cell scoreboard-header" style="width: 15%;" />
+                <ui:Label text="Player" class="scoreboard-cell scoreboard-header" style="width: 40%;" />
+                <ui:Label text="Final Score" class="scoreboard-cell scoreboard-header" style="width: 45%; -unity-text-align: middle-right;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="final-score-rows-container" style="flex-grow: 1;">
+                <!-- Rows will be injected here -->
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:Button name="btn-play-again" text="Play Again" class="btn-primary" />
+            <ui:Button name="btn-main-menu" text="Main Menu" class="btn-primary" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

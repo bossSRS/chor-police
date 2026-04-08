@@ -25,16 +25,25 @@ public class GameManager : BaseManager
     public PlayerData PickedTarget { get; private set; }
     public bool DidPoliceWin { get; private set; }
 
+    private bool _isInitialized = false;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        if (!_isInitialized) Init();
+    }
+
     public override void Init()
     {
+        if (_isInitialized) return;
         Debug.Log("GameManager Init()");
         InitializePlayers();
+        _isInitialized = true;
     }
 
     private void InitializePlayers()

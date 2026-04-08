@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement class="panel-container">
+        <ui:Label text="CHOR POLICE" class="title-text" />
+        <ui:Button name="btn-singleplayer" text="Single Player" class="btn-primary" />
+        <ui:Button name="btn-multiplayer" text="Online Multiplayer" class="btn-primary" />
+        <ui:Button name="btn-local" text="Local Multiplayer" class="btn-primary" />
+        <ui:Button name="btn-settings" text="Settings" class="btn-primary" />
+        <ui:Button name="btn-quit" text="Quit Game" class="btn-primary" />
+    </ui:VisualElement>
+</ui:UXML>

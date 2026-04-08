@@ -79,31 +79,56 @@ Assets/
 │   │   └── TargetScorer.cs     # Chor/Dakat scoring
 │   ├── Player/                 # Player logic
 │   │   ├── AIManager.cs        # AI system controller
-│   │   ├── AIPlayer.cs         # AI behavior for computer players
-│   │   └── PlayerController.cs # Human player controller
-│   ├── Systems/
-│   │   ├── LeaderboardManager.cs
-│   │   └── Scoring/
-│   │       ├── BabuScorer.cs
-│   │       ├── PoliceScorer.cs
-│   │       └── ScoringSystem.cs
-│   ├── Testing/
-│   │   └── TestRoundSimulator.cs
-│   ├── UI/
-│   │   ├── GameOverUI.cs
-│   │   ├── PolicePickUI.cs
-│   │   ├── RolePanelUI.cs
-│   │   ├── ScoreboardUI.cs
-│   │   └── UIManager.cs
+│   │   └── AIPlayer.cs         # AI behavior for computer players
+│   ├── UI/                     # UI Toolkit controllers
+│   │   └── UIManager.cs        # Central UI controller (UI Toolkit based)
 │   └── Utilities/
 │       └── TMPHelper.cs
+├── UI/                         # UI Toolkit Assets
+│   ├── ChorPoliceStyles.uss    # Shared styling
+│   ├── MainMenuUI.uxml         # Main menu layout
+│   ├── GameHUDUI.uxml          # Main gameplay interface
+│   ├── RoleRevealUI.uxml       # Role assignment overlay
+│   ├── PolicePickUI.uxml       # Arrest selection interface
+│   ├── ResultOverlayUI.uxml    # Round result reveal
+│   ├── ScoreboardUI.uxml       # Round scoring summary
+│   └── GameOverUI.uxml         # Final game results
 ├── Docs/
 │   └── UML/                    # Architecture diagrams
-├── Data/                       # ScriptableObjects
 ├── Resources/
 ├── Scenes/
 └── Settings/
 ```
+
+---
+
+## UI Architecture (UI Toolkit)
+
+The project uses **Unity UI Toolkit** for all interfaces. This provides a web-like workflow using **UXML** for structure and **USS** for styling.
+
+### UI Syncing & Gameplay Integration
+
+To ensure the UI remains in sync with the core game logic, follow these instructions:
+
+1. **State-Driven View Swapping**:
+   - `UIManager` must subscribe to `GameStateManager.Instance.OnStateChanged`.
+   - On each state change, the `rootVisualElement` should be cleared and the corresponding `VisualTreeAsset` (UXML) should be instantiated and added.
+   - Example: `_root.Add(mainMenuAsset.Instantiate());`
+
+2. **Real-time Data Binding**:
+   - **HUD Updates**: During `PolicePick` or `HUD` states, pull data directly from `GameManager.Instance` (e.g., `CurrentRound`, `CurrentTarget`).
+   - **Player Cards**: Iterate through `GameManager.Instance.Players` to populate the `player-cards-container`. Use `Q<Label>("lbl-name-" + i)` to target specific elements.
+   - **Role Reveal**: Query the human player's role from `RoleManager` or `GameManager` to update the `icon-assigned-role`.
+
+3. **Event Subscriptions**:
+   - **Results**: Subscribe to `GameStateManager.Instance.OnRevealResult` to trigger the `ResultOverlayUI` with correct win/loss messaging and role icons.
+   - **Button Clicks**: Use the `clicked` event on `VisualElement` buttons to call manager methods.
+     - `btn-singleplayer.clicked += GameStateManager.Instance.StartGame;`
+     - `btn-confirm-arrest.clicked += GameStateManager.Instance.OnPolicePickComplete;`
+
+4. **Styling with USS**:
+   - Use role-specific classes (`.role-police`, `.role-chor`) to dynamically colorize elements based on the assigned `RoleType`.
+   - Utilize pseudo-classes like `:hover` and `:active` in `ChorPoliceStyles.uss` for interactive feedback without writing extra C# code.
 
 ---
 
@@ -117,9 +142,10 @@ Assets/
 - [x] Scoring via ScriptableObject
 - [x] State machine implementation
 - [x] AI system with configurable difficulty
+- [x] UI Toolkit Architecture (UXML/USS)
 
 **In Progress:**
-- [ ] UI for player roles, round status, and scores
+- [ ] Fully animated UI transitions
 - [ ] AI behavior refinement (target selection logic)
 
 ### Phase 2: Online Multiplayer (Photon Fusion 2)
@@ -291,7 +317,7 @@ All managers follow this structure:
 - **Language**: C# (.NET Standard 2.1)
 - **Rendering**: URP (Universal Render Pipeline)
 - **Input**: Unity Input System
-- **UI**: Unity UI with TextMeshPro
+- **UI**: Unity UI Toolkit (UXML/USS)
 - **Networking**: Photon Fusion 2 (Planned for Phase 2)
 - **Version Control**: Git + GitHub
 

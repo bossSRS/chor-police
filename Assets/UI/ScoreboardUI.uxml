@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement class="panel-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;">
+        <ui:Label text="Round Scores" class="title-text" />
+        <ui:VisualElement class="scoreboard-table">
+            <ui:VisualElement class="scoreboard-row scoreboard-header">
+                <ui:Label text="Player" class="scoreboard-cell scoreboard-header" />
+                <ui:Label text="Role" class="scoreboard-cell scoreboard-header" />
+                <ui:Label text="Points" class="scoreboard-cell scoreboard-header" />
+                <ui:Label text="Total" class="scoreboard-cell scoreboard-header" />
+            </ui:VisualElement>
+            <ui:VisualElement name="score-rows-container" style="flex-grow: 1;">
+                <!-- Rows will be injected here -->
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button name="btn-next-round" text="Next Round" class="btn-primary" style="margin-top: 32px;" />
+    </ui:VisualElement>
+</ui:UXML>

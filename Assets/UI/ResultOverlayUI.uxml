@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement class="panel-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.85);">
+        <ui:Label name="lbl-result-status" text="Police Caught the Chor!" class="title-text text-highlight" />
+        <ui:VisualElement class="player-card" style="width: 250px; height: 350px;">
+            <ui:Label name="lbl-revealed-name" text="AI 1" class="player-card-name" style="font-size: 24px;" />
+            <ui:Label name="icon-revealed-role" text="🕵️" class="player-card-icon" style="font-size: 100px;" />
+            <ui:Label name="lbl-revealed-role" text="CHOR" class="player-card-name" style="font-size: 24px; color: #374151;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

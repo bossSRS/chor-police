@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%;">
+        <ui:VisualElement class="hud-top-bar">
+            <ui:Label name="lbl-round-counter" text="Round 1 / 10" class="normal-text" />
+            <ui:Label name="lbl-current-target" text="Target: CHOR" class="header-text text-highlight" style="margin-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="player-cards-container">
+            <ui:VisualElement name="card-0" class="player-card">
+                <ui:Label name="lbl-name-0" text="Player 1" class="player-card-name" />
+                <ui:Label name="icon-role-0" text="?" class="player-card-icon" />
+            </ui:VisualElement>
+            <ui:VisualElement name="card-1" class="player-card">
+                <ui:Label name="lbl-name-1" text="AI 1" class="player-card-name" />
+                <ui:Label name="icon-role-1" text="?" class="player-card-icon" />
+            </ui:VisualElement>
+            <ui:VisualElement name="card-2" class="player-card">
+                <ui:Label name="lbl-name-2" text="AI 2" class="player-card-name" />
+                <ui:Label name="icon-role-2" text="?" class="player-card-icon" />
+            </ui:VisualElement>
+            <ui:VisualElement name="card-3" class="player-card">
+                <ui:Label name="lbl-name-3" text="AI 3" class="player-card-name" />
+                <ui:Label name="icon-role-3" text="?" class="player-card-icon" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

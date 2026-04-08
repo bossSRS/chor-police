@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd">
+    <ui:Style src="ChorPoliceStyles.uss" />
+    <ui:VisualElement class="panel-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;">
+        <ui:Label text="Your Role Is..." class="header-text" />
+        <ui:VisualElement class="player-card" style="width: 300px; height: 400px;">
+            <ui:Label name="lbl-assigned-role" text="POLICE" class="player-card-name" style="font-size: 32px;" />
+            <ui:Label name="icon-assigned-role" text="👮" class="player-card-icon" style="font-size: 120px;" />
+        </ui:VisualElement>
+        <ui:Button name="btn-continue" text="Continue" class="btn-primary" style="margin-top: 32px;" />
+    </ui:VisualElement>
+</ui:UXML>
